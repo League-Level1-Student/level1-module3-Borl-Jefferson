@@ -1,5 +1,7 @@
 package _01_static_smiley_blues;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -15,6 +17,7 @@ JPanel jepp = new JPanel();
 jeff.add(jepp);
 jeff.setVisible(true);
 		// 8. DO THIS LAST: 
+Smiley.color = Smiley.GREEN;
 		// Set the Smiley class's color variable to Smiley.YELLOW (NOT a specific smiley object's!)
 		// Using a specific object for a static variable works, but is not usually recommended.
 		// Run it again; are your Smileys all yellow now? Also try changing them to red or green!

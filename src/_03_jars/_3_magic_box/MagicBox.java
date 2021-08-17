@@ -15,6 +15,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -36,7 +37,20 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 *   
 	 *     
 	 */
+JFrame jeff = new JFrame();
+JPanel jepp = new JPanel();
+public static void main(String[] args) {
+	
 
+//jeff.add(jepp);
+//jeff.pack(jepp);
+
+
+	}
+
+	
+	
+	
 	BufferedImage backgroundImage;
 
 
@@ -57,6 +71,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.addMouseListener(this);
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -82,6 +97,15 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		int x = e.getX();
+		int y = e.getX();
+		System.out.print(e.getX() + " ");
+		System.out.println(e.getY());
+		if (x>166 && x<216) {
+			if (y> 843 && y<893) {
+				JOptionPane.showMessageDialog(null, "Dont click me!");
+			}
+		}
 		
 	}
 
