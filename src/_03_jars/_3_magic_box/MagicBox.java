@@ -104,7 +104,7 @@ public static void main(String[] args) {
 		if (x>166 && x<216) {
 			if (y> 843 && y<893) {
 				JOptionPane.showMessageDialog(null, "Dont click me!");
-			}
+			} 
 		}
 		
 	}
