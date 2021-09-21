@@ -24,21 +24,24 @@ int score = 0;
 
 
 void setup() {
-  size (500, 500);  
+  size (500, 500);
 }
 void draw() {
   background(025, 100, 200);
   fill(0, 0, 0);
-  text("Score" + score, 20, 0);
-  Loser();
+  text("Score" + score, 440, 20);
+
   fill(#f5bd1f);
   stroke(0, 0, 0);
   ellipse(250, b, 60, 50);
+
   if (Xpipe <= 190) {
     Xpipe = Xpipe - sped;
     sped += .01;
-    score += 1;
   }
+
+
+
   if (Xpipe < -60) {
     Xpipe = 500;
     int Ypip = (int) random(100, 400);
@@ -46,6 +49,7 @@ void draw() {
     lp = hp + 300;
     LYpipe = hp + 150;
     HYpipe = 0;
+    score += 1;
   }
   Xpipe = Xpipe - sped;
   b=b+gravity;
@@ -58,9 +62,21 @@ void draw() {
       jump = false;
     }
   }
+  
   fill(0, 250, 0);
   rect(Xpipe, LYpipe, 60, lp);
   rect(Xpipe, HYpipe, 60, hp);
+  if (b >= 525 || b <= -25) {
+    Loser();
+  }
+  if (Xpipe < 265 && Xpipe > 235) {
+    if (LYpipe < b-7) {
+      Loser();
+    }
+    if (HYpipe < b-7 && HYpipe > b+7-hp) {
+      Loser();
+    }
+  }
 } 
 void keyPressed() {
   if (key == 32) {
@@ -68,13 +84,21 @@ void keyPressed() {
     flapSpeed = 30;
     gravity = startGravity;
   }
+if (keyCode==38)
+score = score + 1;
 }
 void Loser() {
-  if (b >= 525 || b <= -25) {
-    noLoop();
-    textSize(100);
-    background(0, 0, 0);
-    fill(250, 0, 0);
-    text("YOU LOST", 0, 250);
-  }
+
+  noLoop();
+  delay(1500);
+  background(0,0,0);
+  textSize(100);
+
+  fill(250, 0, 0);
+  text("YOU LOST", 0, 250);
+  fill(255, 255, 255);
+//  ellipse(250, b-gravity, 60, 50);
+  fill(0, 0, 255);
+  textSize(75);
+  text(score, 200, 325 );
 }
